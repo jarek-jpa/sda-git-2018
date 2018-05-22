@@ -39,18 +39,18 @@
         }
 
         #git-logo-small {
-            border: 0;
-            box-shadow: none;
-            background: none;
             margin-bottom: -20px;
             width: 8%;
         }
 
         #git-logo-big {
-            border: 0;
-            box-shadow: none;
-            background: none;
             width: 50%;
+        }
+
+        .nobox.nobox {
+            box-shadow: none;
+            border: 0;
+            background:none;
         }
 
     </style>
@@ -89,7 +89,7 @@
 	        <textarea data-template>
 		        ## Agenda
                 * o systemach kontroli wersji
-                * ![git-logo](resources/git-logo.png) <!-- .element id="git-logo-small" -->
+                * ![git-logo](resources/git-logo.png) <!-- .element id="git-logo-small" class="nobox"-->
 Git - wprowadzenie
                 * podstawowe operacje na repozytorium
                 * branching
@@ -105,21 +105,26 @@ Git - wprowadzenie
         <section data-markdown>
 	        <textarea data-template>
 		        ## Software development process
-                <!--TODO soft dev process-->
+                ![devel](resources/dev-wordcloud-3.png) <!-- .element width="70%" class="nobox"-->
 	        </textarea>
         </section>
 
         <section data-markdown>
           <textarea data-template>
-            ## Pre-VCS era
-              <!--TODO: pre-VCS phd-final img-->
+            ### Pre-VCS era
+            ![pre-vcs](resources/phd_final.png) <!-- .element width="45%" class="nobox"-->
           </textarea>
         </section>
 
         <section data-markdown>
           <textarea data-template>
-            ## VCS
-              <!--TODO: VCS some intro-->
+            ## System kontroli wersji (VCS)
+              * przechowuje kolejne _wersje_ plików
+              * umożliwia łatwe przywrócenie dowolnej wersji
+              * umożliwia łatwą _współpracę_
+
+
+              Przykłady: CVS, SVN, Mercurial, Git <!-- .element class="fragment"-->
           </textarea>
         </section>
 
@@ -432,7 +437,7 @@ Git - wprowadzenie
         <section data-markdown>
 	        <textarea data-template>
 		        ## <!-- .element class="fragment"--> Gałęzie (branches)
-                ![git-logo-big](resources/git-logo.png) <!-- .element id="git-logo-big" -->
+                ![git-logo-big](resources/git-logo.png) <!-- .element id="git-logo-big" class="nobox" -->
 	        </textarea>
         </section>
 
