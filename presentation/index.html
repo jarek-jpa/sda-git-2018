@@ -38,13 +38,19 @@
             text-transform: none;
         }
 
-        #git-logo {
+        #git-logo-small {
             border: 0;
             box-shadow: none;
             background: none;
             margin-bottom: -20px;
-            height: 8%;
             width: 8%;
+        }
+
+        #git-logo-big {
+            border: 0;
+            box-shadow: none;
+            background: none;
+            width: 50%;
         }
 
     </style>
@@ -83,7 +89,7 @@
 	        <textarea data-template>
 		        ## Agenda
                 * o systemach kontroli wersji
-                * ![git-logo](resources/git-logo.png) <!-- .element id="git-logo" -->
+                * ![git-logo](resources/git-logo.png) <!-- .element id="git-logo-small" -->
 Git - wprowadzenie
                 * podstawowe operacje na repozytorium
                 * branching
@@ -175,11 +181,17 @@ Git - wprowadzenie
             <h2><code>git log</code></h2>
             <ul>
                 <li>wyświetla commity w repo</li>
-                <!--TODO: log example/visualization?-->
-                <li class="fragment"><code>-n &lt;X&gt;</code></li>
-                <li class="fragment"><code>--oneline</code></li>
-                <li class="fragment"><code>--stat</code></li>
+
             </ul>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git log -1
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git log --oneline
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git log --stat
+            </code></pre>
         </section>
 
         <section data-markdown>
@@ -358,8 +370,79 @@ Git - wprowadzenie
 
         <section data-markdown>
           <textarea data-template>
-            ## recap
-              <!--TODO: some recap-->
+            ## Podsumowanie:
+            * <!-- .element class="fragment"--> `git init`
+            * <!-- .element class="fragment"--> `git add`
+            * <!-- .element class="fragment"--> `git commit`
+            * <!-- .element class="fragment"--> `git log`
+            * <!-- .element class="fragment"--> `git checkout`
+            * <!-- .element class="fragment"--> `git reset`
+            * <!-- .element class="fragment"--> `git revert`
+          </textarea>
+        </section>
+
+        <section>
+            <h2>Zadanie - Java HelloWorld</h2>
+            <ol style="font-size: 0.7em">
+                <li> w wybranym IDE utwórz Javowy projekt <code>HelloWorld</code>
+                <li> utwórz repozytorium w katalogu projektu (<code>git init</code> bez nazwy)
+                <li> w katalogu <code>src/main/java/hello</code> utwórz klasę HelloWorld wypisującą tekst "Hello World" na ekran
+                <li> uruchom program
+                <li> dodaj plik klasy (tylko <code>HelloWorld.java</code>) do repozytorium i utwórz commit
+                <li> zmodyfikuj nieco program, tak by wyświetlał inny tekst
+                <li> dodaj zmieniony plik do repozytorium
+                <li> wyświetl status repozytorium
+            </ol>
+            czy napotkałeś jakieś problemy?
+            </textarea>
+        </section>
+
+        <section>
+            <h3>Problem - untracked files</h3>
+            <h2 class="fragment">.gitignore</h2>
+            <pre class="fragment"><code data-trim class="bash">
+                $echo .idea > .gitignore
+                $echo '*.iml' >> .gitignore
+                $echo 'out/' >> .gitignore
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git status
+                On branch master
+                Untracked files:
+
+                .gitignore
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git add .gitignore
+                $ git commit -m "added gitignore"
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Zadanie - .gitignore</h2>
+            <ol style="font-size: 0.7em">
+                <li> dodaj plik <code>.gitignore</code> do repozytorium projektu hello
+                <li> utwórz nową klasę <code>Empty.java</code></li>
+                <li> skompiluj/przebuduj projekt (tak by powstał plik <code>Empty.class</code>)
+                <li> wyświetl <code>git status</code> i upewnij się że plik `Empty.class` nie pojawia się w wyniku
+            </ol>
+            </textarea>
+        </section>
+
+        <section data-markdown>
+	        <textarea data-template>
+		        ## <!-- .element class="fragment"--> Gałęzie (branches)
+                ![git-logo-big](resources/git-logo.png) <!-- .element id="git-logo-big" -->
+	        </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## Scenariusze:
+            * eksperymentalne zmiany
+            * równoległa praca
+
+            ![branching](resources/branching.png) <!-- .element width="50%" class="fragment" -->
           </textarea>
         </section>
 
@@ -415,20 +498,6 @@ Git - wprowadzenie
             ## local vs remote branch
               * tracking
               <!--TODO: local-remote branching-->
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-            ## more on merging
-              <!--TODO: more-on-merging-->
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-            ## recap/questions
-              <!--TODO: recap/questions-->
           </textarea>
         </section>
 
