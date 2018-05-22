@@ -14,22 +14,39 @@
 
     <style media="screen" type="text/css">
 
-        .reveal h1 { text-transform: none; }
-        .reveal h2 { text-transform: none; }
-        .reveal h3 { text-transform: none; }
-        .reveal h4 { text-transform: none; }
-        .reveal h5 { text-transform: none; }
-        .reveal h6 { text-transform: none; }
+        .reveal h1 {
+            text-transform: none;
+        }
+
+        .reveal h2 {
+            text-transform: none;
+        }
+
+        .reveal h3 {
+            text-transform: none;
+        }
+
+        .reveal h4 {
+            text-transform: none;
+        }
+
+        .reveal h5 {
+            text-transform: none;
+        }
+
+        .reveal h6 {
+            text-transform: none;
+        }
 
     </style>
 
     <!-- Printing and PDF exports -->
     <script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 </head>
 <body>
@@ -38,7 +55,6 @@
         <section data-markdown>
 	        <textarea data-template>
 		        # GIT
-                ## - system kontroli wersji
                 ### Jarek Pawlak
                 #### jarek.pawlak@zielony-blekit.org
 	        </textarea>
@@ -57,10 +73,343 @@
         <section data-markdown>
 	        <textarea data-template>
 		        ## Agenda
-                * ...
+                <!-- TODO agenda-->
 	        </textarea>
         </section>
 
+        <section data-markdown>
+	        <textarea data-template>
+		        ## Software development process
+                <!--TODO soft dev process-->
+	        </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## Pre-VCS era
+              <!--TODO: pre-VCS phd-final img-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## VCS
+              <!--TODO: VCS some intro-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## GIT
+            * Linus Torvalds, 2005
+            * distributed
+            * fast
+          </textarea>
+        </section>
+
+        <section data-markdown>
+	        <textarea data-template>
+		        ## VCS - różne architektury
+                ![vcs-arch](resources/centralized-vs-de.png) <!-- .element height="50%" width="50%" -->
+	        </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## Pytania?
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## Instalacja Git
+              * test
+              * ustawienie user.name
+              <!--TODO: instalacja GIT - win-->
+          </textarea>
+        </section>
+
+        <section>
+            <h2>Git - podstawowy flow</h2>
+            <pre class="fragment"><code data-trim class="bash">
+                git init repo_name    ## tworzy repozytorium
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                git add .    ## dodaje pliki do indeksu
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                git commit -m "some message"    ## zapisuje commit
+            </code></pre>
+        </section>
+
+        <section>
+            Demo - basic flow
+            <pre class="fragment"><code data-trim class="bash">
+                git init repo1
+                echo aaa > file.txt
+                git add .
+                git commit -m "first commit"
+            </code></pre>
+        </section>
+
+        <section>
+            <h2><code>git log</code></h2>
+            <ul>
+                <li>wyświetla commity w repo</li>
+                <!--TODO: log example/visualization?-->
+                <li class="fragment"><code>-n &lt;X&gt;</code></li>
+                <li class="fragment"><code>--oneline</code></li>
+                <li class="fragment"><code>--stat</code></li>
+            </ul>
+        </section>
+
+        <section data-markdown>
+	        <textarea data-template>
+		        ## Time machine :)
+                ![btf](resources/back-to-the-future.jpeg) <!-- .element height="50%" width="50%" -->
+	        </textarea>
+        </section>
+
+        <section>
+            <h2><code>git checkout</code></h2>
+            <pre class="fragment"><code data-trim class="bash">
+                $ echo bbb >> file.txt
+                $ git add .
+                $ git commit -m "added bbb"
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git log --oneline
+                336339f (HEAD -> master) added bbb
+                f715291 first commit
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git checkout f715
+                HEAD is now at f715291 first commit
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+
+                $ cat file.txt
+                aaa
+            </code></pre>
+        </section>
+
+         <section data-markdown="">
+            <textarea data-template>
+                ## Pytania?
+            </textarea>
+        </section>
+
+        <section data-markdown data-background-color="white">
+	        <textarea data-template>
+		        ## 3 stany
+                ![staging](resources/staging.png) <!-- .element height="50%" width="50%" class="fragment"-->
+	        </textarea>
+        </section>
+
+        <section>
+            <h2>staging area (indeks)</h2>
+            <p class="fragment">co się dzieje po add?</p>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git add .
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git status
+                On branch master
+                Changes to be committed:
+
+                    modified:   file.txt
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>staging area - tour</h2>
+            <!--<ul>-->
+                <!--<li>modyfikacja pliku</li>-->
+                <!--<li>add</li>-->
+                <!--<li>commit</li>-->
+                <!--<li>nowy plik</li>-->
+                <!--<li>add</li>-->
+                <!--<li>commit</li>-->
+            <!--</ul>-->
+
+        </section>
+
+        <section>
+            <h2><code>git status</code></h2>
+            <p>Twój przyjaciel :)</p>
+            <ul>
+                <li class="fragment">sprawdza stan indeksu</li>
+                <li class="fragment">podaje co się zmieniło</li>
+                <li class="fragment">sprawdza aktualny branch</li>
+            </ul>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## Odwracanie zmian
+              * w indeksie
+              * w plikach (working dir)
+              * w commitach
+          </textarea>
+        </section>
+
+        <section>
+            <h3>odwracanie zmian w indeksie</h3>
+            <h3 class="fragment"><code>git reset</code></h3>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git status
+                On branch master
+                Changes to be committed:
+                  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+
+                    modified:   file.txt
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git reset file.txt
+                Unstaged changes after reset:
+                M	test.txt
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>odwracanie zmian w plikach</h3>
+            <h3 class="fragment" style="color: red"><code>-uwaga-</code></h3>
+            <h3 class="fragment"><code>git reset --hard</code></h3>
+            <pre class="fragment"><code data-trim class="bash">
+                $ cat test.txt
+                aaa
+                bbb
+                ccc
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git reset --hard
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ cat test.txt
+                aaa
+                bbb
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>"odwracanie" zmian w commitach</h3>
+            <h3 class="fragment"><code>git revert</code></h3>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git log --oneline
+                336339f (HEAD -> master) added bbb
+                f715291 first commit
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git revert 3363
+                [master 20891c8] Revert "added bbb"
+                 1 file changed, 1 deletion(-)
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git log --oneline
+                20891c8 (HEAD -> master) Revert "added bbb"
+                336339f added bbb
+                f715291 first commit
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ cat test.txt
+                aaa
+            </code></pre>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## TASKS
+              <!-- TODO: big task 1-->
+          </textarea>
+        </section>
+
+        <!--TODO: ### DAY-2 ###-->
+
+        <!-- DAY-2 -->
+
+        <section data-markdown>
+          <textarea data-template>
+            ## recap
+              <!--TODO: some recap-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## master + HEAD
+              <!--TODO: master + HEAD -->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## branches
+              * create
+              * switch
+              <!--TODO: branches-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## recap/visualization
+              <!--TODO: recap/visualization-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## merge
+              * conflicts
+              * tools
+              <!--TODO: merging-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## Github
+              * remotes
+              <!--TODO: Github, remotes-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## push/pull
+              <!--TODO: push/pull-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## local vs remote branch
+              * tracking
+              <!--TODO: local-remote branching-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## more on merging
+              <!--TODO: more-on-merging-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## recap/questions
+              <!--TODO: recap/questions-->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## TASKS
+              <!--TODO: TASKS - last-->
+          </textarea>
+        </section>
 
 
         <!-- <section data-markdown>
@@ -124,18 +473,22 @@
 <script src="js/reveal.js"></script>
 
 <script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				],
-				history: true
-			});
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ],
+        history: true
+    });
 </script>
 </body>
 </html>
