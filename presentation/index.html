@@ -499,6 +499,21 @@ Git - wprowadzenie
         </section>
 
         <section>
+            <h2>Branch</h2>
+            <h3>- na jakim jestem?</h3>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git branch
+                * crazy-experiment
+                  master
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git status
+                On branch crazy-experiment
+                nothing to commit, working tree clean
+            </code></pre>
+        </section>
+
+        <section>
             <h2>Zadanie - refaktoring branch</h2>
             <ol style="font-size: 0.7em">
                 <li> wykorzystaj repozytorium z zadania <code>HelloWorld</code>
@@ -534,59 +549,114 @@ Git - wprowadzenie
             <h2>Merge - demo</h2>
         </section>
 
-        <section data-markdown>
-          <textarea data-template>
-            ## recap/visualization
-              <!--TODO: recap/visualization-->
-          </textarea>
+        <section>
+            <h2>Zadanie - merge refaktoring branch</h2>
+            <ol style="font-size: 0.7em">
+                <li> wykorzystaj repozytorium z poprzedniego zadania
+                <li> zmerguj branch <code>refactoring</code> do <code>master'a</code>
+                <li> (nie powinno byc konfliktow)</li>
+            </ol>
+            </textarea>
+        </section>
+
+        <section>
+            <h2>Merge</h2>
+            <h3>fast-forward</h3>
+            <p class="fragment">
+                <img src="resources/merging-ff1.png" style="width: 30%;">
+            </p>
+            <p class="fragment">
+                <img src="resources/merging-ff2.png" style="width: 30%;">
+            </p>
+        </section>
+
+        <section>
+            <h2>Merge</h2>
+            <h3>conflicts</h3>
+            <p>demo + rozwiazywanie w IntelliJ</p>
+        </section>
+
+        <section>
+            <h2>Zadanie - rozwiazywanie konfliktow</h2>
+            <ol style="font-size: 0.7em">
+                <li> wykorzystaj repozytorium z poprzedniego zadania
+                <li> utwórz nowy branch <code>conflicting</code> i przełącz sie na niego</li>
+                <li> zmień kod tak, aby wywołanie <code>System.out.println("I am here")</code> znalazlo sie w nowej metodzie</li>
+                <li> zapisz zmiany i utwórz commit</li>
+                <li> przejdź na branch <code>master</code></li>
+                <li> zmień <i>tekst</i> <code>I am here</code> --> <code>I am there</code></li>
+                <li> zapisz zmiany i utwórz commit</li>
+                <li> spróbuj dokonać merge'a brancha <code>conflicting</code> do <code>master'a</code></li>
+                <li> rozwiąż konflikty :)</li>
+            </ol>
+            </textarea>
+        </section>
+
+        <section>
+            <h2>Github</h2>
+            <p><a href="https://github.com">https://github.com</a></p>
+            <p>
+                <img src="resources/github.png" style="width: 40%;" class="nobox">
+            </p>
+        </section>
+
+        <section>
+            <h2>Github</h2>
+            <h3>working with remotes</h3>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git clone ...
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git remote -v
+                origin	https://github.com/jarek-jpa/testrepo.git (fetch)
+                origin	https://github.com/jarek-jpa/testrepo.git (push)
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git commit ...
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git push
+            </code></pre>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git pull
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Zadanie - zdalne repo na Github'ie</h2>
+            <ol style="font-size: 0.7em">
+                <li> utwórz repozytorium na Github'ie (przez interfejs www)
+                <li> sklonuj repozytorium lokalnie
+                <li> utworz dowolne pliki w lokalnym repozytorium (np. haiku lub HelloWorld)</li>
+                <li> zapisz je jako commit</li>
+                <li> wyślij commit do zdalnego repo (<code>git push</code>)</li>
+                <li> wejdź na strone Github i sprawdź czy pliki są widoczne</li>
+                <li> poprzez strone Github utworz dodaj do repo plik README.md</li>
+                <li> ściągnij najnowsze commity ze zdalnego repo (tzn. commit zawierajacy plik README.md) do repo lokalnego</li>
+                <li> zweryfikuj zawartość pliku README.md lokalnie</li>
+            </ol>
+            </textarea>
         </section>
 
         <section data-markdown>
           <textarea data-template>
-            ## merge
-              * conflicts
-              * tools
-              <!--TODO: merging-->
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-            ## Github
-              * remotes
-              <!--TODO: Github, remotes-->
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-            ## push/pull
-              <!--TODO: push/pull-->
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-            ## local vs remote branch
-              * tracking
-              <!--TODO: local-remote branching-->
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-            ## TASKS
-              <!--TODO: TASKS - last-->
+            ## podsumowanie
+              * <!-- .element class="fragment"--> `git init/clone`
+              * <!-- .element class="fragment"--> `git add, git commit`
+              * <!-- .element class="fragment"--> `git log`
+              * <!-- .element class="fragment"--> `git checkout`
+              * <!-- .element class="fragment"--> `git branch, git merge`
+              * <!-- .element class="fragment"--> `git push, git pull`
+              * <!-- .element class="fragment" style="font-size: 1.5em"--> `git status`
           </textarea>
         </section>
 
         <!-- backlog:-->
+        <!-- - attlasian tutorial-->
         <!-- - detached head-->
+        <!--local/remote branch, tracking-->
         <!-- - stash-->
         <!---->
-
-        <!--backlog:-->
-        <!-- - attlasian tutorial-->
 
         <!-- <section data-markdown>
 	        <textarea data-template>
