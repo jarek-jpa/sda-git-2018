@@ -477,13 +477,35 @@ Git - wprowadzenie
           </textarea>
         </section>
 
-        <section data-markdown>
-          <textarea data-template>
-            ## branches
-              * create
-              * switch
-              <!--TODO: branches-->
-          </textarea>
+        <section>
+            <h2>Branch - tworzenie</h2>
+            <pre class="fragment"><code data-trim class="bash">
+                $ git branch crazy-experiment
+            </code></pre>
+            <p class="fragment">
+                <img src="resources/new-branch.png">
+            </p>
+            <div class="fragment">
+                <p>przełączenie</p>
+                <pre><code data-trim class="bash">
+                    $ git checkout crazy-experiment
+                </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Zadanie - refaktoring branch</h2>
+            <ol style="font-size: 0.7em">
+                <li> wykorzystaj repozytorium z zadania <code>HelloWorld</code>
+                <li> utwórz nowy branch o nazwie <code>refactoring</code> i przełącz sie na niego
+                <li> zmień kod, tak aby wywołanie <code>System.out.println..</code> znalazło się w osobnej metodzie
+                <li> zapisz zmianę jako nowy commit</li>
+                <li> przełącz się na branch <code>master</code></li>
+                <li> dodaj kolejne wywołanie <code>System.out.println("I am here")</code></li>
+                <li> zapisz zmianę jako nowy commit</li>
+                <li> obejrzyj graf commitów w IntelliJ <code>Version Control: Log</code></li>
+            </ol>
+            </textarea>
         </section>
 
         <section data-markdown>
@@ -532,6 +554,9 @@ Git - wprowadzenie
           </textarea>
         </section>
 
+
+        <!--backlog:-->
+        <!-- - attlasian tutorial-->
 
         <!-- <section data-markdown>
 	        <textarea data-template>
